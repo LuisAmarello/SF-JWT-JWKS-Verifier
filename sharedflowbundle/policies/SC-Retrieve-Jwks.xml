@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ServiceCallout continueOnError="false" enabled="true" name="SC-Retrieve-Jwks">
+    <DisplayName>SC-Retrieve-Jwks</DisplayName>
+    <Properties/>
+    <Request>
+        <Set>
+            <Verb>GET</Verb>
+        </Set>
+    </Request>
+    <Response>JwksResponse</Response>
+    <HTTPTargetConnection>
+        <Properties>
+            <Property name="success.codes">2xx</Property>
+        </Properties>
+        <URL>https://{private.auth-server}/oauth2/v1/keys</URL>
+    </HTTPTargetConnection>
+</ServiceCallout>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<KeyValueMapOperations continueOnError="false" enabled="true" name="KVM-Get-Data-Auth-Server">
+    <DisplayName>KVM-Get-Data-Auth-Server</DisplayName>
+    <Properties/>
+    <ExclusiveCache>false</ExclusiveCache>
+    <MapName ref="verifyapikey.Verify-API-Key.apiproduct.operation.attributes.flow.map.auth.server"/>
+    <!--From Custom Variable Product-->
+    <ExpiryTimeInSecs>300</ExpiryTimeInSecs>
+    <Get assignTo="private.auth-server" index="1">
+        <Key>
+            <Parameter ref="apigee.developer.app.name"/>
+            <Parameter>authServer</Parameter>
+        </Key>
+    </Get>
+    <Scope>environment</Scope>
+</KeyValueMapOperations>

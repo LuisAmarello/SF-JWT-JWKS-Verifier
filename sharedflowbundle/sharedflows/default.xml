@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<SharedFlow name="default">
+    <Step>
+        <Name>CORS</Name>
+    </Step>
+    <!--Step>
+        <Name>RF-ApiKey-Not-Provided</Name>
+    </Step-->
+    <Step>
+        <Name>OAuth-v2</Name>
+    </Step>
+    <Step>
+        <Name>Verify-API-Key</Name>
+        <Condition>oauthV2.OAuth-v2.failed != true</Condition>
+    </Step>
+    <Step>
+        <Name>AM-Set-Error-Status-Code-Variable</Name>
+        <Condition>oauthV2.OAuth-v2.failed = true</Condition>
+    </Step>
+    <Step>
+        <Name>RF-ApiKey-Not-Provided</Name>
+        <Condition>oauthV2.OAuth-v2.failed = true</Condition>
+    </Step>
+    <Step>
+        <Name>AM-Remove-ApiKey-Header</Name>
+    </Step>
+    <Step>
+        <Name>EV-Authorization-Header</Name>
+    </Step>
+    <Step>
+        <Name>CacheLookup-Jwks</Name>
+    </Step>
+    <Step>
+        <Name>KVM-Get-Data-Auth-Server</Name>
+        <Condition>cached.jwks = null</Condition>
+    </Step>
+    <Step>
+        <Name>SC-Retrieve-Jwks</Name>
+        <Condition>cached.jwks = null</Condition>
+    </Step>
+    <Step>
+        <Name>CacheInsert-Jwks</Name>
+        <Condition>cached.jwks = null</Condition>
+    </Step>
+    <Step>
+        <Name>AM-Set-JWKS-Variable</Name>
+        <Condition>cached.jwks = null</Condition>
+    </Step>
+    <Step>
+        <Name>Verify-JWT-1</Name>
+    </Step>
+    <Step>
+        <Name>AM-Set-Error-Status-Code-Variable</Name>
+        <Condition>(JWT.failed = true) Or (jwt.Verify-JWT-1.is_expired = true)</Condition>
+    </Step>
+    <Step>
+        <Condition>JWT.failed = true</Condition>
+        <Name>RF-JWT-Not-Valid</Name>
+    </Step>
+    <Step>
+        <Condition>jwt.Verify-JWT-1.is_expired = true</Condition>
+        <Name>RF-JWT-Expired</Name>
+    </Step>
+</SharedFlow>

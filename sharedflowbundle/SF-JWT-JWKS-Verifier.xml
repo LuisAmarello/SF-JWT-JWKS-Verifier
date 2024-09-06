@@ -1,0 +1,27 @@
+<SharedFlowBundle revision="1" name="SF-JWT-JWKS-Verifier">
+    <DisplayName></DisplayName>
+    <Description></Description>
+    <CreatedAt>1725337097413</CreatedAt>
+    <LastModifiedAt>1725337097413</LastModifiedAt>
+    <Policies>
+        <Policy>CORS</Policy>
+        <Policy>Verify-API-Key</Policy>
+        <Policy>RF-JWT-Not-Valid</Policy>
+        <Policy>AM-Remove-ApiKey-Header</Policy>
+        <Policy>RF-ApiKey-Not-Provided</Policy>
+        <Policy>RF-JWT-Expired</Policy>
+        <Policy>EV-Authorization-Header</Policy>
+        <Policy>CacheLookup-Jwks</Policy>
+        <Policy>CacheInsert-Jwks</Policy>
+        <Policy>AM-Set-JWKS-Variable</Policy>
+        <Policy>Verify-JWT-1</Policy>
+        <Policy>SC-Retrieve-Jwks</Policy>
+        <Policy>OAuth-v2</Policy>
+        <Policy>KVM-Get-Data-Auth-Server</Policy>
+        <Policy>AM-Set-Error-Status-Code-Variable</Policy>
+    </Policies>
+    <SharedFlows>
+        <SharedFlow>default</SharedFlow>
+    </SharedFlows>
+    <subType>SharedFlow</subType>
+</SharedFlowBundle>

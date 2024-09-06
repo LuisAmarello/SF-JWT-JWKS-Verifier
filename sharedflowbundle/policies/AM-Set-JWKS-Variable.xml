@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage continueOnError="false" enabled="true" name="AM-Set-JWKS-Variable">
+    <DisplayName>AM-Set-JWKS-Variable</DisplayName>
+    <Properties/>
+    <IgnoreUnresolvedVariables>false</IgnoreUnresolvedVariables>
+    <AssignVariable>
+        <Name>cached.jwks</Name>
+        <Ref>JwksResponse.content</Ref>
+    </AssignVariable>
+</AssignMessage>

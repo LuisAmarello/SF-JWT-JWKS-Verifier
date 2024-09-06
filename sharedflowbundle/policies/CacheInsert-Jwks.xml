@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<PopulateCache continueOnError="false" enabled="true" name="CacheInsert-Jwks">
+    <DisplayName>CacheInsert-Jwks</DisplayName>
+    <Properties/>
+    <CacheResource>cache1</CacheResource>
+    <Source>JwksResponse.content</Source>
+    <Scope>Application</Scope>
+    <CacheKey>
+        <Prefix>jwks</Prefix>
+        <KeyFragment>1</KeyFragment>
+    </CacheKey>
+    <ExpirySettings>
+        <TimeoutInSec>3600</TimeoutInSec>
+    </ExpirySettings>
+</PopulateCache>
